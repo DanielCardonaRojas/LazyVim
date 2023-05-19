@@ -4,3 +4,5 @@
 vim.opt.relativenumber = false
 vim.opt.updatetime = 1000
 vim.opt.swapfile = false
+vim.opt.foldmethod = "manual"
+vim.opt.foldenable = false

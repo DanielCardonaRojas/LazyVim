@@ -19,6 +19,10 @@ local searchDirs = {
   "~/.bash_profile",
 }
 
+local noteVaults = {
+  "~/NotesVault/",
+}
+
 return {
   "nvim-telescope/telescope.nvim",
   opts = {
@@ -108,6 +112,22 @@ return {
           results_title = nil,
           path_display = { "smart" },
           search_dirs = searchDirs,
+          cwd = "~/.config/",
+          layout_strategy = "horizontal",
+          layout_config = { preview_width = 0.6, width = 0.75, height = 0.5 },
+        })
+      end,
+    },
+    --- Search notes
+    {
+      "<leader>sn",
+      desc = "search dotfiles",
+      function()
+        require("telescope.builtin").live_grep({
+          prompt_title = "Search notes",
+          results_title = nil,
+          path_display = { "smart" },
+          search_dirs = noteVaults,
           cwd = "~/.config/",
           layout_strategy = "horizontal",
           layout_config = { preview_width = 0.6, width = 0.75, height = 0.5 },
