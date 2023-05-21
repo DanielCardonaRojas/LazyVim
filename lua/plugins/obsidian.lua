@@ -10,6 +10,9 @@ return {
     "godlygeek/tabular",
     "preservim/vim-markdown",
   },
+  keys = {
+    { "<leader>fm", "<cmd>ObsidianQuickSwitch <CR>", desc = "Find notes" },
+  },
   opts = {
     dir = "~/NotesVault", -- no need to call 'vim.fn.expand' here
 
