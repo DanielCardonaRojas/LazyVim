@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       "bash-language-server",
       "stylua",
+      "marksman",
     },
   },
 }
