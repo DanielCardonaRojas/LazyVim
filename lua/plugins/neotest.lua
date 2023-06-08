@@ -14,6 +14,7 @@ return {
     { "<leader>tf", ':lua require("neotest").run.run(vim.fn.expand("%")) <CR>', desc = "Test file" },
     { "<leader>ts", ':lua require("neotest").summary.toggle() <CR>', desc = "Tests summary" },
     { "<leader>tt", ":TestFile <CR>", desc = "Test file (vim-test)" },
+    { "<leader>tl", ":TestLast <CR>", desc = "Test last (vim-test)" },
     { "<leader>tn", ":TestNearest <CR>", desc = "Test nearest (vim-test)" },
   },
   init = function() end,
