@@ -5,6 +5,7 @@ return {
       "bash-language-server",
       "stylua",
       "marksman",
+      "gopls",
     },
   },
 }
