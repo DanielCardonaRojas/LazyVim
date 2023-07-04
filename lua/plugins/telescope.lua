@@ -1,6 +1,8 @@
 local searchDirs = {
   "~/.oh-my-zsh/custom/",
   "~/.config/nvim",
+  "~/.hammerspoon/",
+  "~/.config/atuin/atuin.zshrc",
   "~/.config/nvim/lua/custom",
   "~/.config/alacritty",
   "~/.config/yabai",
