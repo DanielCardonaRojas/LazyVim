@@ -12,6 +12,10 @@ return {
     },
     servers = {
       dartls = {},
+      sourcekit = {
+        -- filetypes = { "swift" },
+        -- cmd = { "xcrun", "--toolchain", "swift", "--find", "sourcekit-lsp" },
+      },
     },
   },
 }
