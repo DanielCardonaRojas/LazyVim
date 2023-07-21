@@ -6,10 +6,20 @@ local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
+  if type(lhs) == "table" then
+    for _, bind in ipairs(lhs) do
+      if not keys.active[keys.parse({ bind, mode = mode }).id] then
+        opts = opts or {}
+        opts.silent = opts.silent ~= false
+        vim.keymap.set(mode, bind, rhs, opts)
+      end
+    end
+  else
+    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+      opts = opts or {}
+      opts.silent = opts.silent ~= false
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
   end
 end
 
@@ -37,13 +47,13 @@ map("n", "<leader>gG", function()
   }, { esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazygit (cwd)" })
 
-map("n", "<leader>ot", function()
+map("n", { "<leader>ot", "<localleader>t" }, function()
   local currentPath = vim.fn.getcwd()
-  local options = { regex = true, path = currentPath, split = "vertical", maxdepth = 4 }
+  local options = { regex = true, path = currentPath, maxdepth = 4 }
   require("nvim-quick-switcher").find(".+_test|.+Tests|.+Test|.+\\.test", options)
 end, { noremap = true, silent = true, desc = "Open test file" })
 
-map("n", "<leader>om", function()
+map("n", { "<leader>om", "<localleader>m" }, function()
   local currentPath = vim.fn.getcwd()
   require("nvim-quick-switcher").find(".+_notifier\\.", {
     regex = true,
@@ -54,7 +64,7 @@ map("n", "<leader>om", function()
   })
 end, { noremap = true, silent = true, desc = "Open model file" })
 
-map("n", "<leader>ov", function()
+map("n", { "<leader>ov", "<localleader>v" }, function()
   local currentPath = vim.fn.getcwd()
   require("nvim-quick-switcher").find(".+_page\\.", {
     regex = true,
