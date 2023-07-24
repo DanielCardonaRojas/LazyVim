@@ -47,6 +47,12 @@ map("n", "<leader>gG", function()
   }, { esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Lazygit (cwd)" })
 
+local lazyterm = function()
+  Util.float_term(nil, { cwd = Util.get_root() })
+end
+
+map({ "n", "i", "t" }, "<c-x>", lazyterm, { desc = "Open floating terminal" })
+
 map("n", { "<leader>ot", "<localleader>t" }, function()
   local currentPath = vim.fn.getcwd()
   local options = { regex = true, path = currentPath, maxdepth = 4 }
