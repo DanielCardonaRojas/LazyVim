@@ -52,31 +52,3 @@ local lazyterm = function()
 end
 
 map({ "n", "i", "t" }, "<c-x>", lazyterm, { desc = "Open floating terminal" })
-
-map("n", { "<leader>ot", "<localleader>t" }, function()
-  local currentPath = vim.fn.getcwd()
-  local options = { regex = true, path = currentPath, maxdepth = 4 }
-  require("nvim-quick-switcher").find(".+_test|.+Tests|.+Test|.+\\.test", options)
-end, { noremap = true, silent = true, desc = "Open test file" })
-
-map("n", { "<leader>om", "<localleader>m" }, function()
-  local currentPath = vim.fn.getcwd()
-  require("nvim-quick-switcher").find(".+_notifier\\.", {
-    regex = true,
-    reverse = false,
-    path = currentPath,
-    maxdepth = 4,
-    prefix = "long",
-  })
-end, { noremap = true, silent = true, desc = "Open model file" })
-
-map("n", { "<leader>ov", "<localleader>v" }, function()
-  local currentPath = vim.fn.getcwd()
-  require("nvim-quick-switcher").find(".+_page\\.", {
-    regex = true,
-    reverse = false,
-    path = currentPath,
-    maxdepth = 4,
-    prefix = "long",
-  })
-end, { noremap = true, silent = true, desc = "Open view file" })
