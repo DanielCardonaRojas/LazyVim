@@ -1,6 +1,7 @@
 return {
   "petertriho/nvim-scrollbar",
   event = "CursorMoved",
+  enabled = false,
   config = function()
     require("scrollbar").setup({
       excluded_filetypes = {
