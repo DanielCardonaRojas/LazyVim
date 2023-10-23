@@ -4,6 +4,7 @@ return {
     mappings = {
       comment_line = "<leader>/",
       comment = "<leader>/",
+      comment_visual = "<leader>/",
     },
   },
 }
