@@ -9,6 +9,9 @@ return {
     diagnostics = {
       underline = true,
       virtual_text = false,
+      float = {
+        border = "rounded",
+      },
     },
     servers = {
       dartls = {},
