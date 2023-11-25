@@ -88,6 +88,7 @@ return {
   keys = {
     -- disable the keymap to grep files
     { "<leader>/", false },
+    { "<leader><leader>", false },
     -- find in dotfiles
     {
       "<leader>f.",
