@@ -13,6 +13,13 @@ return {
 
     local luasnip = require("luasnip")
     local cmp = require("cmp")
+
+    opts.window = {
+      completion = {
+        border = "rounded",
+      },
+    }
+
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<C-j>"] = cmp.mapping.select_next_item(),
       ["<C-k>"] = cmp.mapping.select_prev_item(),
