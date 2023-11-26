@@ -30,25 +30,25 @@ map("c", "<c-k>", "<c-p>")
 local homeDir = os.getenv("HOME")
 
 map("n", "<leader>gg", function()
-  Util.float_term({
+  Util.terminal.open({
     "lazygit",
     "-ucf",
     homeDir .. "/.config/lazygit/config.yml" .. "," .. homeDir .. "/.config/lazygit/catppuccin/frappe.yml",
-  }, { cwd = Util.get_root(), esc_esc = false, ctrl_hjkl = false })
+  }, { cwd = Util.root.get(), esc_esc = false, ctrl_hjkl = false, border = "rounded" })
 end, { desc = "Lazygit (root dir)" })
 
 map("n", "<leader>gG", function()
-  Util.float_term({
+  Util.terminal.open({
     "lazygit",
     "-ucf",
     homeDir .. "/.config/lazygit/config.yml" .. "," .. homeDir .. "/.config/lazygit/catppuccin/frappe.yml",
     "--git-dir=" .. homeDir .. "/.cfg",
     "--work-tree=" .. homeDir,
-  }, { esc_esc = false, ctrl_hjkl = false })
+  }, { esc_esc = false, ctrl_hjkl = false, border = "rounded" })
 end, { desc = "Lazygit (cwd)" })
 
 local lazyterm = function()
-  Util.float_term(nil, { cwd = Util.get_root() })
+  Util.terminal.open(nil, { cwd = Util.root.get(), border = "rounded" })
 end
 
 map({ "n", "i", "t" }, "<c-x>", lazyterm, { desc = "Open floating terminal" })
