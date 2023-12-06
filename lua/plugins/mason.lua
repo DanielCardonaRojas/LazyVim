@@ -5,7 +5,10 @@ return {
       "bash-language-server",
       "stylua",
       "marksman",
-      "gopls",
+    },
+    ui = {
+      border = "rounded",
+      height = 0.8,
     },
   },
 }
